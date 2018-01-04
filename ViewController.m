@@ -32,10 +32,9 @@ static NSString *const kFiltersSegueId = @"toFilters";
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    [self presentViewController:picker animated:YES completion:nil];// вызов окна галереи
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
-// делагатный метод, который вызывается после выбора изображения
 -(void)imagePickerController:(UIImagePickerController *)picker
        didFinishPickingImage:(UIImage *)image
                  editingInfo:(NSDictionary *)editingInfo
@@ -55,17 +54,16 @@ static NSString *const kFiltersSegueId = @"toFilters";
     });
     
 }
-// делагатный метод, который вызывается при отмене выбора изображения
+
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 #pragma mark - segue
-// Этот метод будет вызван у контроллера, из которого был начат переход
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{//kFiltersSegueId – это константа типа String с идентификатором перехода «toFilters»
+{
     if ([segue.identifier isEqualToString:kFiltersSegueId])
     {
         FiltersViewController *destinationController = (FiltersViewController *)segue.destinationViewController;
