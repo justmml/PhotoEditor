@@ -98,6 +98,12 @@
                                     <outlet property="delegate" destination="Tet-Pp-qB1" id="drf-RE-uCW"/>
                                 </connections>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The result that you achieve:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dq-s6-pL3">
+                                <rect key="frame" x="31" y="428" width="313" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -108,7 +114,10 @@
                             <constraint firstAttribute="bottom" secondItem="Byk-I7-M4r" secondAttribute="bottom" constant="20" symbolic="YES" id="dJf-kB-hAu"/>
                             <constraint firstItem="oJN-Qg-Pk3" firstAttribute="leading" secondItem="nJt-vq-BHX" secondAttribute="leading" id="hhS-00-RYp"/>
                             <constraint firstItem="oJN-Qg-Pk3" firstAttribute="top" secondItem="2R4-CV-gpC" secondAttribute="top" id="maC-ak-h4G"/>
+                            <constraint firstItem="8dq-s6-pL3" firstAttribute="centerX" secondItem="Byk-I7-M4r" secondAttribute="centerX" id="pqs-uZ-6EZ"/>
+                            <constraint firstItem="8dq-s6-pL3" firstAttribute="leading" secondItem="2R4-CV-gpC" secondAttribute="leading" constant="31" id="rfU-yC-9tT"/>
                             <constraint firstAttribute="bottom" secondItem="oJN-Qg-Pk3" secondAttribute="bottom" constant="247" id="wRN-Jt-u6a"/>
+                            <constraint firstItem="8dq-s6-pL3" firstAttribute="top" secondItem="oJN-Qg-Pk3" secondAttribute="bottom" constant="8" symbolic="YES" id="xMS-3U-FT9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2R4-CV-gpC"/>
                     </view>
