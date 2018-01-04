@@ -52,7 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="52s-2U-19o"/>
                     <connections>
-                        <outlet property="btnOpenPhoto" destination="cHu-xv-FKH" id="rjM-B1-GDx"/>
+                        <outlet property="btnOpenPhoto" destination="cHu-xv-FKH" id="dhF-4I-VWi"/>
                         <segue destination="Tet-Pp-qB1" kind="show" identifier="toFilters" id="B2U-re-bKN"/>
                     </connections>
                 </viewController>

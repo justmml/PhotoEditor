@@ -46,7 +46,7 @@
 {
     self.filterPreviews = [[NSMutableArray alloc] init];
     
-    //Заполним массив пустыми элементами для предварительного отображения в коллекцию ->
+    //Filling in array with empty elements for preview in collection->
     for (long i = 0; i < [UIImage filterNames].count; i++)
     {
         [self.filterPreviews addObject:[[UIImage alloc]init]];
@@ -63,7 +63,7 @@
     UIGraphicsEndImageContext();
     
     CIImage *ciimg = [[CIImage alloc] initWithImage:cropped];
-    //создадим очередь для добавления превью изображения с примененным фильтром
+    //creating queue for adding filtered image preview
     NSOperationQueue *queue = [[NSOperationQueue alloc]init];
     queue.maxConcurrentOperationCount = 2;
     
@@ -105,24 +105,24 @@
     _filteringQueue = [NSOperationQueue new];
     _filteringQueue.maxConcurrentOperationCount = 1;
     _filteringQueue.qualityOfService = NSQualityOfServiceUserInitiated;
-    [self.filtersCollection registerNib:[UINib nibWithNibName:@"FiltersCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"filtersCollectionCell"];//Регистрируем  xib файл для коллекции.
+    [self.filtersCollection registerNib:[UINib nibWithNibName:@"FiltersCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"filtersCollectionCell"];//Xib file registry
      // Do any additional setup after loading the view.
     [self makeFilterPreviews];
      }
 
 #pragma mark - Collection
-// Возвращает количество ячеек для секции, обязательный метод
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.filterPreviews.count;
 } 
-// Возвращает размер ячейки
+// Returns cells size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat sz = collectionView.frame.size.height - 6;
     return CGSizeMake(sz, sz);
 } 
-//Обязательный метод, в реализации которого мы возвращаем созданный и сконфигурированный объект UICollectionViewCell
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     long index = [indexPath item];
@@ -139,7 +139,7 @@
     
     return cell;
 }
-// метод, который вызывается, если ячейка была успешно выбрана
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -163,12 +163,11 @@
 } 
 
 #pragma mark - Scroll View
-// метод возвращает объект UIView, используемый при масштабировании содержимого
+
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
 }
 
-// делегатный метод, вызываемый во время изменения масштаба содержимого
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
     CGSize sz = scrollView.contentSize;
     
@@ -177,13 +176,12 @@
     [scrollView setContentInset:UIEdgeInsetsMake(yInsets,xInsets,yInsets,xInsets)];
 } 
 
-// метод, который вызывается при смене ориентации
 - (void) orientationChanged:(NSNotification *)note
 {
     [self.view layoutSubviews];
     [self updateScaleInScrollView:self.scrollView];
 }
-// метод, который корректно выводит содережимое ScrollView после изменения масштаба
+
 -(void)updateScaleInScrollView:(UIScrollView *)scrollView
 {
     UIImage *image = _image;
@@ -200,7 +198,7 @@
     [self scrollViewDidZoom:scrollView];
 }
 #pragma mark - other
-// далее приведен набор методов для масштабирования
+
 CGSize sizeFill(CGSize size, CGSize sizeToFill)
 {
     CGSize newSize;
